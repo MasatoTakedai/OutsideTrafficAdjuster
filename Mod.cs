@@ -3,6 +3,7 @@ using Colossal.Logging;
 using Game;
 using Game.Modding;
 using Game.SceneFlow;
+using Game.Simulation;
 
 namespace OutsideTrafficAdjuster
 {
@@ -21,9 +22,15 @@ namespace OutsideTrafficAdjuster
             m_Setting = new Setting(this);
             m_Setting.RegisterInOptionsUI();
             GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(m_Setting));
-
-
             AssetDatabase.global.LoadSettings(nameof(OutsideTrafficAdjuster), m_Setting, new Setting(this));
+
+            // patch prefabs
+            PrefabPatcher patcher = new PrefabPatcher();
+            patcher.PatchAllSpawnRates(m_Setting.RoadMultiplier, m_Setting.TrainMultiplier, m_Setting.ShipMultiplier, m_Setting.PlaneMultiplier);
+
+            // set up new overridden system
+            //updateSystem.UpdateAt<NewTrafficSpawnerAISystem>(SystemUpdatePhase.GameSimulation);
+            //updateSystem.UpdateAt<NewTrafficSpawnerAISystem>(SystemUpdatePhase.LoadSimulation);
         }
 
         public void OnDispose()
