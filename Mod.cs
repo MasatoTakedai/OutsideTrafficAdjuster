@@ -27,10 +27,6 @@ namespace OutsideTrafficAdjuster
             // patch prefabs
             PrefabPatcher patcher = new PrefabPatcher();
             patcher.PatchAllSpawnRates(m_Setting.RoadMultiplier, m_Setting.TrainMultiplier, m_Setting.ShipMultiplier, m_Setting.PlaneMultiplier);
-
-            // set up new overridden system
-            //updateSystem.UpdateAt<NewTrafficSpawnerAISystem>(SystemUpdatePhase.GameSimulation);
-            //updateSystem.UpdateAt<NewTrafficSpawnerAISystem>(SystemUpdatePhase.LoadSimulation);
         }
 
         public void OnDispose()
