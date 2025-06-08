@@ -2,14 +2,31 @@
 	<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
 	<ModId Value="" />
 	<!--Name of the mod to display to players-->
-	<DisplayName Value="OutsideTrafficAdjuster" />
+	<DisplayName Value="Outside Traffic Adjuster" />
 	<!--Short description of the mod-->
 	<ShortDescription Value="Adjusts the spawn rate of outside/dummy traffic" />
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 	<!--LongDescription Value="This is a long description" /-->
 	<LongDescription>
-This is a long description
-	</LongDescription>
+# Outside Traffic Adjuster
+
+This mod allows you to adjust the spawn rate of outside connection to outside connection traffic (also known as dummy traffic).  
+Road, train, ship, and plane traffic spawnrates can be individually adjusted.
+I find this to be especially useful for train traffic, where outside traffic could easily clog up your rail network.
+
+## Adding and removing from an existing save
+* This mod can be safely added to and removed from an existing save, as this mod does not alter savedata.
+
+## Compatability
+* There are no current known incompatabilities with this mod
+
+## Notes
+* I'm not exactly sure what the game does with the spawn rate value, and while the mod seems to work with decreased spawnrates, increased spawnrates don't seem to have that big of an impact.
+* This mod uses a less invasive approach to altering spawnrate, so it should be less susceptible to mod-breaking updates.
+
+## Credits
+* To dex3r for the original mod, and tduck973564's Traffic Simulation Adjuster for the prefab patcher code.
+  </LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.png" />
 	<!--Screenshot, can be set multiple times-->
@@ -27,9 +44,9 @@ This is a long description
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog Value="" />
-	<!--<ChangeLog>
-	</ChangeLog>-->
+  <ChangeLog>
+* Initial release
+  </ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
-	<ExternalLink Type="" Url="" />
+	<ExternalLink Type="github" Url="https://github.com/MasatoTakedai/OutsideTrafficAdjuster" />
 </Publish>
