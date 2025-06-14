@@ -10,10 +10,12 @@ namespace OutsideTrafficAdjuster
     public class Mod : IMod
     {
         public static ILog log = LogManager.GetLogger($"{nameof(OutsideTrafficAdjuster)}.{nameof(Mod)}").SetShowsErrorsInUI(false);
-        private Setting m_Setting;
+        public Setting m_Setting;
+        public static Mod INSTANCE;
 
         public void OnLoad(UpdateSystem updateSystem)
         {
+            INSTANCE = this;
             log.Info(nameof(OnLoad));
 
             if (GameManager.instance.modManager.TryGetExecutableAsset(this, out var asset))
@@ -24,9 +26,7 @@ namespace OutsideTrafficAdjuster
             GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(m_Setting));
             AssetDatabase.global.LoadSettings(nameof(OutsideTrafficAdjuster), m_Setting, new Setting(this));
 
-            // patch prefabs
-            PrefabPatcher patcher = new PrefabPatcher();
-            patcher.PatchAllSpawnRates(m_Setting.RoadMultiplier, m_Setting.TrainMultiplier, m_Setting.ShipMultiplier, m_Setting.PlaneMultiplier);
+            updateSystem.UpdateAt<SpawnRateEditorSystem>(SystemUpdatePhase.ModificationEnd);
         }
 
         public void OnDispose()

@@ -2,7 +2,6 @@
 using Colossal.IO.AssetDatabase;
 using Game.Modding;
 using Game.Settings;
-using System;
 using System.Collections.Generic;
 
 namespace OutsideTrafficAdjuster
@@ -16,40 +15,17 @@ namespace OutsideTrafficAdjuster
         }
 
         [SettingsUISlider(min = 0, max = 2, step = 0.1f, unit = "floatSingleFraction")]
-        [SettingsUISetter(typeof(Setting), nameof(ApplyRoadSettings))]
         public float RoadMultiplier { get; set; }
-        public void ApplyRoadSettings(float value)
-        {
-            new PrefabPatcher().PatchRoadSpawnRates(value);
-            RoadMultiplier = value;
-        }
+
 
         [SettingsUISlider(min = 0, max = 2, step = 0.1f, unit = "floatSingleFraction")]
-        [SettingsUISetter(typeof(Setting), nameof(ApplyTrainSettings))]
         public float TrainMultiplier { get; set; }
-        public void ApplyTrainSettings(float value)
-        {
-            new PrefabPatcher().PatchTrainSpawnRates(value);
-            TrainMultiplier = value;
-        }
 
         [SettingsUISlider(min = 0, max = 2, step = 0.1f, unit = "floatSingleFraction")]
-        [SettingsUISetter(typeof(Setting), nameof(ApplyShipSettings))]
         public float ShipMultiplier { get; set; }
-        public void ApplyShipSettings(float value)
-        {
-            new PrefabPatcher().PatchShipSpawnRates(value);
-            ShipMultiplier = value;
-        }
 
         [SettingsUISlider(min = 0, max = 2, step = 0.1f, unit = "floatSingleFraction")]
-        [SettingsUISetter(typeof(Setting), nameof(ApplyPlaneSettings))]
         public float PlaneMultiplier { get; set; }
-        public void ApplyPlaneSettings(float value)
-        {
-            new PrefabPatcher().PatchPlaneSpawnRates(value);
-            PlaneMultiplier = value;
-        }
 
         public sealed override void SetDefaults()
         {
