@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace OutsideTrafficAdjuster
 {
-    [FileLocation(nameof(OutsideTrafficAdjuster))]
+    [FileLocation("ModsSettings/OutsideTrafficAdjuster/OutsideTrafficAdjuster")]
     public class Setting : ModSetting
     {
         public Setting(IMod mod) : base(mod)
@@ -16,7 +16,6 @@ namespace OutsideTrafficAdjuster
 
         [SettingsUISlider(min = 0, max = 2, step = 0.1f, unit = "floatSingleFraction")]
         public float RoadMultiplier { get; set; }
-
 
         [SettingsUISlider(min = 0, max = 2, step = 0.1f, unit = "floatSingleFraction")]
         public float TrainMultiplier { get; set; }
